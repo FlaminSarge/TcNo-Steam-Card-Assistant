@@ -14,7 +14,7 @@ console.log.apply(console, console_info);
 
 if (window.location.href.includes("gamecards")){
 	var s = document.createElement('script');
-	s.src = chrome.extension.getURL('TcNoEmbed.js');
+	s.src = chrome.runtime.getURL('TcNoEmbed.js');
 	s.onload = function() {
 		this.remove();
 	};
@@ -23,7 +23,7 @@ if (window.location.href.includes("gamecards")){
 }
 if (window.location.href.includes("badges")){
 	var s = document.createElement('script');
-	s.src = chrome.extension.getURL('TcNoEmbed.js');
+	s.src = chrome.runtime.getURL('TcNoEmbed.js');
 	s.onload = function() {
 		this.remove();
 	};
@@ -32,7 +32,7 @@ if (window.location.href.includes("badges")){
 }
 if (window.location.href.includes("multibuy")){
 	var s = document.createElement('script');
-	s.src = chrome.extension.getURL('TcNoEmbed.js');
+	s.src = chrome.runtime.getURL('TcNoEmbed.js');
 	s.onload = function() {
 		this.remove();
 	};
@@ -70,7 +70,7 @@ function MultiBuyPage() {
 				jQuery("input.market_multi_quantity"), function(){
 					jQuery(this).val('5');
 				});
-			window.location.href = "javascript:$('market_multibuy_purchase').click()";
+			jQuery('#market_multibuy_purchase').trigger('click');
 		}
 	});
 	// Round up prices

@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Steam Card Assistant",
   "description": "Extends the Steam Badge crafting system by crafting multiple badges at once, as well as other useful features.",
   "version": "2.3.1",
   "homepage_url": "https://tcno.co/",
 
-  "browser_action": {
+  "action": {
 	   "default_icon": {
 			"16": "images/icon16x16.png",
 			"32": "images/icon32x32.png",
@@ -14,16 +14,19 @@
 		  },
 	   "default_popup": "popup.html"
   },
-    "icons": {
-      "16": "images/icon16x16.png",
-      "32": "images/icon32x32.png",
-      "48": "images/icon48x48.png",
-      "128": "images/icon128x128.png"
-    },
+  "icons": {
+    "16": "images/icon16x16.png",
+    "32": "images/icon32x32.png",
+    "48": "images/icon48x48.png",
+    "128": "images/icon128x128.png"
+  },
   "web_accessible_resources": [
-    "TcNoEmbed.js"
+    {
+      "resources": ["TcNoEmbed.js"],
+      "matches": ["*://*.steampowered.com/*", "*://*.steamcommunity.com/*"]
+    }
   ],
-   "permissions": ["*://*.steampowered.com/*", "*://*.steamcommunity.com/*"],
+   "host_permissions": ["*://*.steampowered.com/*", "*://*.steamcommunity.com/*"],
    "content_scripts": [
     {
 	  "run_at" :"document_end",
